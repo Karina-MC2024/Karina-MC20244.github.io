@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimación de Costos de Software COCOMO 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Estimación de Costos de Software COCOMO 1</h1>
+    </header>
+
+    <form id="cocomoForm" class="form">
+        <div class="input-group">
+            <label for="entrada">Entrada:</label>
+            <input type="number" id="entrada" placeholder="Ingrese Entrada" step="any" required>
+        </div>
+
+        <div class="input-group">
+            <label for="salida">Salida:</label>
+            <input type="number" id="salida" placeholder="Ingrese Salida" step="any" required>
+        </div>
+
+        <div class="input-group">
+            <label for="factor_organico">Factor Orgánico (≤ 30,000):</label>
+            <input type="number" id="factor_organico" min="50" max="80" step="any" value="50" required>
+        </div>
+
+        <div class="input-group">
+            <label for="factor_semi_aplicado">Factor Semi Aplicado (≥ 30,000):</label>
+            <input type="number" id="factor_semi_aplicado" min="81" max="100" step="any" value="81" required>
+        </div>
+
+        <div class="input-group">
+            <label for="factor_acoplado">Factor Acoplado (≥ 100,000):</label>
+            <input type="number" id="factor_acoplado" min="101" max="150" step="any" value="101" required>
+        </div>
+
+        <div class="input-group">
+            <label for="tipo_proyecto">Tipo de Proyecto:</label>
+            <select id="tipo_proyecto" required>
+                <option value="organico">Orgánico</option>
+                <option value="semi_aplicado">Semi Aplicado</option>
+                <option value="acoplado">Acoplado</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="salario">Salario por Persona:</label>
+            <input type="number" id="salario" placeholder="Ingrese Salario" step="any" required>
+        </div>
+
+        <div class="button-group">
+            <button type="button" id="calcular">Calcular</button>
+        </div>
+    </form>
+
+    <section id="resultados" style="display: none;">
+        <h2>Resultados</h2>
+        <p><strong>Total:</strong> <span id="total"></span></p>
+        <p><strong>LDC:</strong> <span id="ldc"></span></p>
+        <p><strong>MLDC:</strong> <span id="mldc"></span></p>
+        <p><strong>Esfuerzo (E):</strong> <span id="esfuerzo"></span></p>
+        <p><strong>Tiempo de Desarrollo (TD):</strong> <span id="td"></span></p>
+        <p><strong>Personal Necesario (CP):</strong> <span id="cp"></span></p>
+        <p><strong>Estimación de la Productividad (P):</strong> <span id="p"></span></p>
+        <p><strong>Costo del Software:</strong> <span id="costo"></span> Bs</p>
+        <p><strong>Costo por Línea de Código (LDC):</strong> <span id="costo_ldc"></span> Bs</p>
+    </section>
+
+    <script src="./static/app.js"></script>
+</body>
+</html>
